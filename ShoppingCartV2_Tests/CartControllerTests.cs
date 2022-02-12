@@ -350,5 +350,29 @@ namespace ShoppingCartV2_Tests
             result.OffersAppliedText.Should().Be(checkoutModel.OffersAppliedText);
             result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
         }
+
+        [TestCase("CDBBAAA")]
+        [TestCase("cdbbaaa")]
+        public void GivenCDBBAAA_ShouldReturnSubTotalOf245DiscountOf35(string receivedItems)
+        {
+            //arrange
+            CheckoutModel checkoutModel = new CheckoutModel()
+            {
+                CartContents = receivedItems,
+                Subtotal = 245,
+                DiscountApplied = 35,
+                OffersAppliedText = "Item B Offer: Buy 2 for 45\nItem A Offer: Buy 3 for 130\n",
+                CheckoutTotal = 245 - 35
+            };
+
+            //act
+            var result = _cartController.Get(receivedItems);
+
+            //assert
+            result.Subtotal.Should().Be(checkoutModel.Subtotal);
+            result.DiscountApplied.Should().Be(checkoutModel.DiscountApplied);
+            result.OffersAppliedText.Should().Be(checkoutModel.OffersAppliedText);
+            result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
+        }
     }
 }

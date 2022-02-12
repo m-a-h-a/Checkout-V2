@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartV2", "ShoppingCartV2\ShoppingCartV2.csproj", "{9C092CA5-1F1F-45E3-87A7-785709881324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartV2_Tests", "ShoppingCartV2_Tests\ShoppingCartV2_Tests.csproj", "{EA6020F0-4847-47DC-968C-9D1FDC5B34D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C092CA5-1F1F-45E3-87A7-785709881324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C092CA5-1F1F-45E3-87A7-785709881324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C092CA5-1F1F-45E3-87A7-785709881324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C092CA5-1F1F-45E3-87A7-785709881324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6020F0-4847-47DC-968C-9D1FDC5B34D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6020F0-4847-47DC-968C-9D1FDC5B34D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6020F0-4847-47DC-968C-9D1FDC5B34D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6020F0-4847-47DC-968C-9D1FDC5B34D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15109E85-6E40-4702-9077-2D9E8C8F89BB}
+	EndGlobalSection
+EndGlobal

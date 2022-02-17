@@ -2,30 +2,28 @@
 
 namespace ShoppingCartV2
 {
-    public class SubTotals
+    public class SubTotalCalculator
     {
-        public decimal CalculateSubTotal(Dictionary<char, int> shoppingCartDictionary)
+        public decimal Calculate(Dictionary<char, int> shoppingCartDictionary)
         {
             decimal subTotal = 0;
 
             foreach (char item in shoppingCartDictionary.Keys)
             {
-                switch(item)
+                char itemLower = char.ToLower(item);
+
+                switch(itemLower)
                 {
                     case 'a':
-                    case 'A':
                         subTotal += itemAPrice * shoppingCartDictionary[item];
                         break;
                     case 'b':
-                    case 'B':
                         subTotal += itemBPrice * shoppingCartDictionary[item];
                         break;
                     case 'c':
-                    case 'C':
                         subTotal += itemCPrice * shoppingCartDictionary[item];
                         break;
                     case 'd':
-                    case 'D':
                         subTotal += itemDPrice * shoppingCartDictionary[item];
                         break;
                 }

@@ -1,19 +1,18 @@
-﻿namespace ShoppingCartV2
-{
-    public class GetSubTotal
-    {
-        private DictionaryCreator _dictionaryCreator;
-        private SubTotals _calculateItems;
+﻿using ShoppingCartV2.Interfaces;
 
+namespace ShoppingCartV2
+{
+    public class GetSubTotal : ISubTotalCalculator
+    {
         public decimal GatherSubTotal(string shoppingCart)
         {
-            _dictionaryCreator = new DictionaryCreator();
-            _calculateItems = new SubTotals();
+            DictionaryCreator dc = new DictionaryCreator();
+            SubTotalCalculator stc = new SubTotalCalculator();
             char[] shoppingCartItems = shoppingCart.ToCharArray();
 
-            var shoppingCartDictionary = _dictionaryCreator.CreateDictionary(shoppingCartItems);
+            var shoppingCartDictionary = dc.CreateDictionary(shoppingCartItems);
 
-            return _calculateItems.CalculateSubTotal(shoppingCartDictionary);
+            return stc.Calculate(shoppingCartDictionary);
         }
     }
 }

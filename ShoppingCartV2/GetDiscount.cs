@@ -1,21 +1,20 @@
 ﻿using ShoppingCartV2.Calculators;
+using ShoppingCartV2.Interfaces;
 
 namespace ShoppingCartV2
 {
-    public class GetDiscount
+    public class GetDiscount : IDiscountCalculator
     {
-        private DictionaryCreator _dictionaryCreator;
-        private Discounts _discounts;
-
         public decimal GetCalculateDiscount(string shoppingCart)
         {
-            _dictionaryCreator = new DictionaryCreator();
-            _discounts = new Discounts();
+            DictionaryCreator dc = new DictionaryCreator();
+            DiscountCalculator discountCalculator = new DiscountCalculator();
+
             char[] shoppingCartItems = shoppingCart.ToCharArray();
 
-            var shoppingCartDictionary = _dictionaryCreator.CreateDictionary(shoppingCartItems);
+            var shoppingCartDictionary = dc.CreateDictionary(shoppingCartItems);
 
-            return _discounts.CalculateDiscount(shoppingCartDictionary);
+            return discountCalculator.Calculate(shoppingCartDictionary);
         }
     }
 }

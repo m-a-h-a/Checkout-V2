@@ -1,8 +1,9 @@
-﻿using static ShoppingCartV2.StaticValues.ItemPrices;
+﻿using ShoppingCartV2.Interfaces;
+using static ShoppingCartV2.StaticValues.ItemPrices;
 
 namespace ShoppingCartV2
 {
-    public class OffersText
+    public class OffersText : IOffersText
     {
         private DictionaryCreator _dictionaryCreator;
 
@@ -16,17 +17,17 @@ namespace ShoppingCartV2
 
             foreach (char item in shoppingCartDictionary.Keys)
             {
-                switch (item)
+                char itemLower = char.ToLower(item);
+
+                switch (itemLower)
                 {
                     case 'a':
-                    case 'A':
                         if (shoppingCartDictionary[item] >= itemAOfferTriggerNumber)
                         {
                             offersText += "Item A Offer: Buy 3 for 130\n";
                         }
                         break;
                     case 'b':
-                    case 'B':
                         if (shoppingCartDictionary[item] >= itemBOfferTriggerNumber)
                         {
                             offersText += "Item B Offer: Buy 2 for 45\n";

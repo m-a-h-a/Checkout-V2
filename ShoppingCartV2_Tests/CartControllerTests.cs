@@ -3,17 +3,22 @@ using ShoppingCartV2;
 using ShoppingCartV2.Controllers;
 using ShoppingCartV2.Models;
 using FluentAssertions;
+using ShoppingCartV2.Interfaces;
+using Moq;
 
 namespace ShoppingCartV2_Tests
 {
     public class Tests
     {
-        private CartController _cartController;
+        CartController _cartController;
+        IDiscountCalculator _discountCalculator;
+        ISubTotalCalculator _subTotalCalculator;
+        IOffersText _offersText;
 
         [SetUp]
         public void Setup()
         {
-            _cartController = new CartController();
+            _cartController = new CartController(_discountCalculator, _subTotalCalculator, _offersText);
         }
 
         [TestCase("")]
@@ -40,7 +45,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("a")]
-        [TestCase("A")]
         public void GivenA_ShouldReturnSubTotalOf50DiscountOf0(string receivedItems)
         {
             //arrange
@@ -64,7 +68,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("AA")]
-        [TestCase("aa")]
         public void GivenAA_ShouldReturnSubTotalOf100DiscountOf0(string receivedItems)
         {
             //arrange
@@ -88,7 +91,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("aaa")]
-        [TestCase("AAA")]
         public void GivenAAA_ShouldReturnSubTotalOf150DiscountOf20(string receivedItems)
         {
             //arrange
@@ -112,7 +114,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("aaaa")]
-        [TestCase("AAAA")]
         public void GivenAAAA_ShouldReturnSubTotalOf200DiscountOf20(string receivedItems)
         {
             //arrange
@@ -136,7 +137,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("B")]
-        [TestCase("b")]
         public void GivenB_ShouldReturnSubTotalOf30DiscountOf0(string receivedItems)
         {
             //arrange
@@ -160,7 +160,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("BB")]
-        [TestCase("bb")]
         public void GivenBB_ShouldReturnSubTotalOf60DiscountOf15(string receivedItems)
         {
             //arrange
@@ -184,7 +183,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("BBB")]
-        [TestCase("bbb")]
         public void GivenBBB_ShouldReturnSubTotalOf90DiscountOf15(string receivedItems)
         {
             //arrange
@@ -207,7 +205,6 @@ namespace ShoppingCartV2_Tests
             result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
         }
 
-        [TestCase("C")]
         [TestCase("c")]
         public void GivenC_ShouldReturnSubTotalOf20DiscountOf0(string receivedItems)
         {
@@ -232,7 +229,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("CCCCC")]
-        [TestCase("ccccc")]
         public void GivenCCCCC_ShouldReturnSubTotalOf100DiscountOf0(string receivedItems)
         {
             //arrange
@@ -256,7 +252,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("D")]
-        [TestCase("d")]
         public void GivenD_ShouldReturnSubTotalOf10DiscountOf0(string receivedItems)
         {
             //arrange
@@ -279,7 +274,6 @@ namespace ShoppingCartV2_Tests
             result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
         }
 
-        [TestCase("AB")]
         [TestCase("ab")]
         public void GivenAB_ShouldReturnSubTotalOf80DiscountOf0(string receivedItems)
         {
@@ -304,7 +298,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("CDBA")]
-        [TestCase("cdba")]
         public void GivenCDBA_ShouldReturnSubTotalOf115DiscountOf0(string receivedItems)
         {
             //arrange
@@ -328,7 +321,6 @@ namespace ShoppingCartV2_Tests
         }
 
         [TestCase("AAABB")]
-        [TestCase("aaabb")]
         public void GivenAAABB_ShouldReturnSubTotalOf210DiscountOf35(string receivedItems)
         {
             //arrange
@@ -351,7 +343,6 @@ namespace ShoppingCartV2_Tests
             result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
         }
 
-        [TestCase("CDBBAAA")]
         [TestCase("cdbbaaa")]
         public void GivenCDBBAAA_ShouldReturnSubTotalOf245DiscountOf35(string receivedItems)
         {

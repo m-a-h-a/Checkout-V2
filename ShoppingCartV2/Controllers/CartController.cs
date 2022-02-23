@@ -22,17 +22,17 @@ namespace ShoppingCartV2.Controllers
         [HttpGet]
         public CheckoutModel Get(string shoppingCart)
         {
-            var discountCalc = _discountCalculator.GetCalculateDiscount;
-            var subTotal = _subTotalCalculator.GatherSubTotal;
-            var offersText = _offersText.CreateOffersText;
+            var discountCalc = _discountCalculator.GetCalculateDiscount(shoppingCart);
+            var subTotal = _subTotalCalculator.GatherSubTotal(shoppingCart);
+            var offersText = _offersText.CreateOffersText(shoppingCart);
 
             CheckoutModel checkoutModel = new CheckoutModel()
             {
                 CartContents = shoppingCart,
-                Subtotal = subTotal(shoppingCart),
-                DiscountApplied = discountCalc(shoppingCart),
-                OffersAppliedText = offersText(shoppingCart),
-                CheckoutTotal = subTotal(shoppingCart) - discountCalc(shoppingCart)
+                Subtotal = subTotal,
+                DiscountApplied = discountCalc,
+                OffersAppliedText = offersText,
+                CheckoutTotal = subTotal - discountCalc
             };
 
             if (shoppingCart == null) { return checkoutModel; }

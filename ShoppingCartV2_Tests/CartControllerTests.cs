@@ -10,14 +10,17 @@ namespace ShoppingCartV2_Tests
 {
     public class Tests
     {
-        CartController _cartController;
-        IDiscountCalculator _discountCalculator;
-        ISubTotalCalculator _subTotalCalculator;
-        IOffersText _offersText;
+        private CartController _cartController;
+        private IDiscountCalculator _discountCalculator;
+        private ISubTotalCalculator _subTotalCalculator;
+        private IOffersText _offersText;
 
         [SetUp]
         public void Setup()
         {
+            _discountCalculator = new GetDiscount();
+            _subTotalCalculator = new GetSubTotal();
+            _offersText = new OffersText();
             _cartController = new CartController(_discountCalculator, _subTotalCalculator, _offersText);
         }
 
@@ -42,6 +45,7 @@ namespace ShoppingCartV2_Tests
             result.DiscountApplied.Should().Be(checkoutModel.DiscountApplied);
             result.OffersAppliedText.Should().Be(checkoutModel.OffersAppliedText);
             result.CheckoutTotal.Should().Be(checkoutModel.CheckoutTotal);
+            //result.Should().Be(checkoutModel);
         }
 
         [TestCase("a")]

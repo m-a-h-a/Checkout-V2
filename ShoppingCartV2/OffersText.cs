@@ -5,15 +5,13 @@ namespace ShoppingCartV2
 {
     public class OffersText : IOffersText
     {
-        private DictionaryCreator _dictionaryCreator;
-
         public string CreateOffersText(string receivedItems)
         {
+            DictionaryCreator dc = new DictionaryCreator();
             string offersText = string.Empty;
-            _dictionaryCreator = new DictionaryCreator();
             char[] shoppingCartItems = receivedItems.ToCharArray();
 
-            var shoppingCartDictionary = _dictionaryCreator.CreateDictionary(shoppingCartItems);
+            var shoppingCartDictionary = dc.CreateDictionary(shoppingCartItems);
 
             foreach (char item in shoppingCartDictionary.Keys)
             {

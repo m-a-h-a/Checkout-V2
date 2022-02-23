@@ -4,7 +4,6 @@ C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ShoppingCartV2.exe
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ShoppingCartV2.deps.json
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ShoppingCartV2.runtimeconfig.json
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ShoppingCartV2.dll
-C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ref\ShoppingCartV2.dll
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\ShoppingCartV2.pdb
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Dev\ShoppingCartV2\ShoppingCartV2\bin\Debug\net6.0\System.Web.Http.dll
@@ -29,3 +28,4 @@ C:\Dev\ShoppingCartV2\ShoppingCartV2\obj\Debug\net6.0\ShoppingCartV2.dll
 C:\Dev\ShoppingCartV2\ShoppingCartV2\obj\Debug\net6.0\ref\ShoppingCartV2.dll
 C:\Dev\ShoppingCartV2\ShoppingCartV2\obj\Debug\net6.0\ShoppingCartV2.pdb
 C:\Dev\ShoppingCartV2\ShoppingCartV2\obj\Debug\net6.0\ShoppingCartV2.genruntimeconfig.cache
+C:\Dev\ShoppingCartV2\ShoppingCartV2\obj\Debug\net6.0\refint\ShoppingCartV2.dll
